@@ -1,0 +1,23 @@
+cabal-version:      3.0
+name:               forever-memory-leak-repro
+version:            0.1.0.0
+license:            BSD-2-Clause
+license-file:       LICENSE
+author:             Alex Hansen
+maintainer:         alexstur@gmail.com
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+common warnings
+    ghc-options: -Wall -finfo-table-map -fdistinct-constructor-tables -eventlog -threaded
+
+executable forever-memory-leak-repro
+    import:           warnings
+    main-is:          Main.hs
+    build-depends:
+        base,
+        ghc-debug-stub,
+        monad-logger,
+        transformers,
+    hs-source-dirs:   app
+    default-language: GHC2021
